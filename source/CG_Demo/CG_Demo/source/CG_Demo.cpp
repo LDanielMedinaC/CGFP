@@ -1,4 +1,6 @@
- // Please don't change lines 9-31 (It helps me to grade)
+#pragma once 
+
+// Please don't change lines 9-31 (It helps me to grade)
 #ifdef _APPLE_
 // For XCode only: New C++ terminal project. Build phases->Compile with libraries: add OpenGL and GLUT
 // Import this whole code into a new C++ file (main.cpp, for example). Then run.
@@ -27,7 +29,7 @@
 
 #include "Model.h"
 #include "Pedestrian.h"
-
+#include "Point.h"
 #include "PeopleController.h"
 Model * campus;
 
@@ -40,10 +42,13 @@ struct vec3 {
 
 
 void init() {
+	Point* p = new Point(0,0,0,1,0,0);
+	Pedestrian* t = new Pedestrian(0.001, NULL, 0, p);
 	campus = new Model();
 	float limitUp[] = { 20,0,20 };
 	float limitButton[] = { 0,0,0 };
 	pc = new PeopleController(limitUp, limitButton, 10);
+	pc->ppl[0] = t;
 	campus->readOBJ();
 	glEnable(GL_DEPTH_TEST);			// Enable check for close and far objects.
 	glClearColor(0.0, 0.0, 0.0, 0.0);	// Clear the color state.
@@ -55,15 +60,17 @@ void display()							// Called for each frame (about 60 times per second).
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);				// Clear color and depth buffers.
 	glLoadIdentity();												// Reset 3D view matrix.
-	gluLookAt(0.0, 0.0, 10.0,										// Where the camera is.
+	gluLookAt(0.0, 30.0, 10.0,										// Where the camera is.
 		0.0, 0.0, 0.0,										// To where the camera points at.
 		0.0, 1.0, 0.0);
 	
 	glutSwapBuffers();
+	pc->draw();
 }
 
 void idle()															// Called when drawing is finished.
 {
+	//pc->update();
 	glutPostRedisplay();											// Display again.
 }
 
@@ -74,9 +81,9 @@ void reshape(int x, int y)											// Called when the window geometry changes.
 	gluPerspective(40.0, (GLdouble)x / (GLdouble)y, 0.5, 50.0);		// Configure the camera lens aperture.
 	glMatrixMode(GL_MODELVIEW);										// Go to 3D mode.
 	glViewport(0, 0, x, y);											// Configure the camera frame dimensions.
-	gluLookAt(0.0, 1.0, 4.0,
+	gluLookAt(0.0, 0.0, 20.0,
 		0.0, 0.0, 0.0,
-		0.0, 1.0, 0.0);
+		0.0, 0.0, 1.0);
 	display();
 }
 
@@ -85,10 +92,60 @@ void reshape(int x, int y)											// Called when the window geometry changes.
 	This can help on having an interactive keyboard
 */
 void littleKey(unsigned char key, int x, int y) {
+	switch (key) {
+	case GLUT_KEY_UP:
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		pc->ppl[0]->traveler->z += 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		break;
+	case GLUT_KEY_DOWN:
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		pc->ppl[0]->traveler->z -= 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		break;
+	case GLUT_KEY_LEFT:
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		pc->ppl[0]->traveler->x -= 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		break;
+	case GLUT_KEY_RIGHT:
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		pc->ppl[0]->traveler->x += 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		break;
+	}
+	
+	
 	glutPostRedisplay();
 }
 
 void specialKey(int key, int x, int y) {
+	switch (key) {
+	case GLUT_KEY_UP:
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		pc->ppl[0]->traveler->z += 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		break;
+	case GLUT_KEY_DOWN:
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		pc->ppl[0]->traveler->z -= 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->z);
+		break;
+	case GLUT_KEY_LEFT:
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		pc->ppl[0]->traveler->x -= 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		break;
+	case GLUT_KEY_RIGHT:
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		pc->ppl[0]->traveler->x += 0.0001f;
+		printf("%f\n", pc->ppl[0]->traveler->x);
+		break;
+	}
+
+
+	glutPostRedisplay();
+
 }
 
 int main(int argc, char* argv[])

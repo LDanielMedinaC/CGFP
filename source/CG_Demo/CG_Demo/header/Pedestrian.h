@@ -1,5 +1,8 @@
+#pragma once
+
 #include "Point.h"
 #include "Bezier.h"
+
 class Pedestrian
 {
 public:
