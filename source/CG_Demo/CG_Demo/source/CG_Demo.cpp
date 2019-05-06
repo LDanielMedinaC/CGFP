@@ -28,17 +28,22 @@
 #include "Model.h"
 #include "Pedestrian.h"
 
-
+#include "PeopleController.h"
 Model * campus;
-Pedestrian * ppl[1];
 
 
+PeopleController* pc;
 
+struct vec3 {
+	float x, y, z;
+};
 
 
 void init() {
 	campus = new Model();
-	
+	float limitUp[] = { 20,0,20 };
+	float limitButton[] = { 0,0,0 };
+	pc = new PeopleController(limitUp, limitButton, 10);
 	campus->readOBJ();
 	glEnable(GL_DEPTH_TEST);			// Enable check for close and far objects.
 	glClearColor(0.0, 0.0, 0.0, 0.0);	// Clear the color state.

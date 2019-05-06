@@ -147,16 +147,26 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Bezier.cpp" />
     <ClCompile Include="source\CG_Demo.cpp" />
     <ClCompile Include="source\cTexture.cpp" />
     <ClCompile Include="source\glm.cpp" />
     <ClCompile Include="source\glmimg.cpp" />
     <ClCompile Include="source\Model.cpp" />
+    <ClCompile Include="source\Pedestrian.cpp" />
+    <ClCompile Include="source\PeopleController.cpp" />
+    <ClCompile Include="source\Point.cpp" />
+    <ClCompile Include="Vec.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Bezier.h" />
     <ClInclude Include="header\cTexture.h" />
     <ClInclude Include="header\glm.h" />
     <ClInclude Include="header\Model.h" />
+    <ClInclude Include="header\Pedestrian.h" />
+    <ClInclude Include="header\PeopleController.h" />
+    <ClInclude Include="header\Point.h" />
+    <ClInclude Include="Vec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

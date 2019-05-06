@@ -46,3 +46,4 @@ Point* Bezier::evaluate(float t, float dir) {
 	}
 	return p;
 }
+
