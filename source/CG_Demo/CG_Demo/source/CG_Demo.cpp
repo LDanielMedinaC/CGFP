@@ -1,10 +1,3 @@
-/*
- * Fernando Martin Garcia Del Angel
- * A01334390
- * TC3022. Computer Graphics Course.
- * Flags of the world
- */
-
  // Please don't change lines 9-31 (It helps me to grade)
 #ifdef _APPLE_
 // For XCode only: New C++ terminal project. Build phases->Compile with libraries: add OpenGL and GLUT
@@ -32,7 +25,21 @@
 #include <math.h>
 #include <stdlib.h>
 
+#include "Model.h"
+#include "Pedestrian.h"
+
+
+Model * campus;
+Pedestrian * ppl[1];
+
+
+
+
+
 void init() {
+	campus = new Model();
+	
+	campus->readOBJ();
 	glEnable(GL_DEPTH_TEST);			// Enable check for close and far objects.
 	glClearColor(0.0, 0.0, 0.0, 0.0);	// Clear the color state.
 	glMatrixMode(GL_MODELVIEW);			// Go to 3D mode.

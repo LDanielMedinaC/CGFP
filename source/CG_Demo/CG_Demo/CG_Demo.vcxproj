@@ -148,6 +148,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CG_Demo.cpp" />
+    <ClCompile Include="source\cTexture.cpp" />
+    <ClCompile Include="source\glm.cpp" />
+    <ClCompile Include="source\glmimg.cpp" />
+    <ClCompile Include="source\Model.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\cTexture.h" />
+    <ClInclude Include="header\glm.h" />
+    <ClInclude Include="header\Model.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
