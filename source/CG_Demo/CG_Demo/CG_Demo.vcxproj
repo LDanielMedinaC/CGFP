@@ -155,6 +155,7 @@
     <ClCompile Include="source\Model.cpp" />
     <ClCompile Include="source\Pedestrian.cpp" />
     <ClCompile Include="source\PeopleController.cpp" />
+    <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\Point.cpp" />
     <ClCompile Include="Vec.cpp" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="header\Model.h" />
     <ClInclude Include="header\Pedestrian.h" />
     <ClInclude Include="header\PeopleController.h" />
+    <ClInclude Include="header\Player.h" />
     <ClInclude Include="header\Point.h" />
     <ClInclude Include="Vec.h" />
   </ItemGroup>

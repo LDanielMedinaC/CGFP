@@ -27,29 +27,16 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include "Model.h"
-#include "Pedestrian.h"
-#include "Point.h"
-#include "PeopleController.h"
-Model * campus;
+//own libraries
+#include "Player.h"
 
-
-PeopleController* pc;
-
-struct vec3 {
-	float x, y, z;
-};
+Player* p;
 
 
 void init() {
-	Point* p = new Point(0,0,0,1,0,0);
-	Pedestrian* t = new Pedestrian(0.001, NULL, 0, p);
-	campus = new Model();
-	float limitUp[] = { 20,0,20 };
-	float limitButton[] = { 0,0,0 };
-	pc = new PeopleController(limitUp, limitButton, 10);
-	pc->ppl[0] = t;
-	campus->readOBJ();
+	
+	p = new Player(0,0);
+
 	glEnable(GL_DEPTH_TEST);			// Enable check for close and far objects.
 	glClearColor(0.0, 0.0, 0.0, 0.0);	// Clear the color state.
 	glMatrixMode(GL_MODELVIEW);			// Go to 3D mode.
@@ -63,14 +50,12 @@ void display()							// Called for each frame (about 60 times per second).
 	gluLookAt(0.0, 30.0, 10.0,										// Where the camera is.
 		0.0, 0.0, 0.0,										// To where the camera points at.
 		0.0, 1.0, 0.0);
-	
+	p->draw();
 	glutSwapBuffers();
-	pc->draw();
 }
 
 void idle()															// Called when drawing is finished.
 {
-	//pc->update();
 	glutPostRedisplay();											// Display again.
 }
 
@@ -92,57 +77,43 @@ void reshape(int x, int y)											// Called when the window geometry changes.
 	This can help on having an interactive keyboard
 */
 void littleKey(unsigned char key, int x, int y) {
+	float _x = 0, _z = 0;
 	switch (key) {
 	case GLUT_KEY_UP:
-		printf("%f\n", pc->ppl[0]->traveler->z);
-		pc->ppl[0]->traveler->z += 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->z);
+		_z += 0.001f;
 		break;
 	case GLUT_KEY_DOWN:
-		printf("%f\n", pc->ppl[0]->traveler->z);
-		pc->ppl[0]->traveler->z -= 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->z);
+		_z -= 0.001f;
 		break;
 	case GLUT_KEY_LEFT:
-		printf("%f\n", pc->ppl[0]->traveler->x);
-		pc->ppl[0]->traveler->x -= 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->x);
+		_x += 0.001f;
 		break;
 	case GLUT_KEY_RIGHT:
-		printf("%f\n", pc->ppl[0]->traveler->x);
-		pc->ppl[0]->traveler->x += 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->x);
+		_z -= 0.001f;
 		break;
 	}
-	
+	p->move(_x, _z);
 	
 	glutPostRedisplay();
 }
 
 void specialKey(int key, int x, int y) {
+	float _x = 0, _z = 0;
 	switch (key) {
 	case GLUT_KEY_UP:
-		printf("%f\n", pc->ppl[0]->traveler->z);
-		pc->ppl[0]->traveler->z += 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->z);
+		_z += 0.1f;
 		break;
 	case GLUT_KEY_DOWN:
-		printf("%f\n", pc->ppl[0]->traveler->z);
-		pc->ppl[0]->traveler->z -= 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->z);
+		_z -= 0.1f;
 		break;
 	case GLUT_KEY_LEFT:
-		printf("%f\n", pc->ppl[0]->traveler->x);
-		pc->ppl[0]->traveler->x -= 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->x);
+		_x += 0.1f;
 		break;
 	case GLUT_KEY_RIGHT:
-		printf("%f\n", pc->ppl[0]->traveler->x);
-		pc->ppl[0]->traveler->x += 0.0001f;
-		printf("%f\n", pc->ppl[0]->traveler->x);
+		_x -= 0.1f;
 		break;
 	}
-
+	p->move(_x*2, _z*2);
 
 	glutPostRedisplay();
 
@@ -153,7 +124,7 @@ int main(int argc, char* argv[])
 	glutInit(&argc, argv);											// Init GLUT with command line parameters.
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGB);		// Use 2 buffers (hidden and visible). Use the depth buffer. Use 3 color channels.
 	glutInitWindowSize(800, 600);
-	glutCreateWindow("Algo");
+	glutCreateWindow("Final Project");
 
 	init();
 	glutKeyboardFunc(littleKey);
