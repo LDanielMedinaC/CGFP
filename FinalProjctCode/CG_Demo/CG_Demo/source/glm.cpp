@@ -872,7 +872,7 @@ glmUnitize(GLMmodel * model)
 	GLuint  i;
 	GLfloat maxx, minx, maxy, miny, maxz, minz;
 	GLfloat cx, cy, cz, w, h, d;
-	GLfloat scale;
+	GLfloat scale = 3.0f;
 
 	assert(model);
 	assert(model->vertices);

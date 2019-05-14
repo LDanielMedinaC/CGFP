@@ -69,41 +69,7 @@ GLuint glmLoadTexture(char* filename, GLboolean alpha, GLboolean repeat, GLboole
 	xSize2 = width;
 	ySize2 = height;
 
-	/*if (xSize2 > gl_max_texture_size)
-	 xSize2 = gl_max_texture_size;
-
-	 if (ySize2 > gl_max_texture_size)
-	 ySize2 = gl_max_texture_size;*/
-
-
-	 /*************************************************************************************
-	  // scale image to power of 2 in height and width
-	  xPow2 = log((double)xSize2) / log(2.0);
-	  yPow2 = log((double)ySize2) / log(2.0);
-
-	  ixPow2 = (int)xPow2;
-	  iyPow2 = (int)yPow2;
-
-	  if (xPow2 != (double)ixPow2)
-	  ixPow2++;
-	  if (yPow2 != (double)iyPow2)
-	  iyPow2++;
-
-	  xSize2 = 1 << ixPow2;
-	  ySize2 = 1 << iyPow2;
-
-	  if((width != xSize2) || (height != ySize2))
-	  {
-	  rdata = (GLubyte*)malloc(sizeof(GLubyte) * xSize2 * ySize2 * pixelsize);
-	  if (!rdata)
-	  return 0;
-	  retval = gluScaleImage(type, width, height, GL_UNSIGNED_BYTE, data, xSize2, ySize2, GL_UNSIGNED_BYTE, rdata);
-
-	  free(data);
-	  data = rdata;
-
-	  }
-	  ******************************************************************************************/
+	
 
 
 	glGenTextures(1, &tex);
@@ -132,11 +98,8 @@ GLuint glmLoadTexture(char* filename, GLboolean alpha, GLboolean repeat, GLboole
 	else
 		glTexImage2D(GL_TEXTURE_2D, 0, type, xSize2, ySize2, 0, type, GL_UNSIGNED_BYTE, data);
 
-	printf("data: %f", data);
 
-	if (data != NULL) {
-		free(data);
-	}
+	
 
 
 	/**texcoordwidth = 1.;        // texcoords are in [0,1]

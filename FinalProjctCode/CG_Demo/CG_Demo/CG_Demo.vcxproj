@@ -153,6 +153,7 @@
     <ClCompile Include="source\cTexture.cpp" />
     <ClCompile Include="source\glm.cpp" />
     <ClCompile Include="source\Particle.cpp" />
+    <ClCompile Include="source\Plane.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\vecs.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="header\cTexture.h" />
     <ClInclude Include="header\glm.h" />
     <ClInclude Include="header\Particle.h" />
+    <ClInclude Include="header\Plane.h" />
     <ClInclude Include="header\Player.h" />
     <ClInclude Include="header\vecs.h" />
   </ItemGroup>
