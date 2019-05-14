@@ -113,7 +113,7 @@ void specialKey(int key, int x, int y) {
 		_x -= 0.1f;
 		break;
 	}
-	p->move(_x*2, _z*2);
+	p->move(-_x*2, -_z*2);
 
 	glutPostRedisplay();
 

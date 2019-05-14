@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Bezier.cpp" />
+    <ClCompile Include="source\Body.cpp" />
     <ClCompile Include="source\CG_Demo.cpp" />
     <ClCompile Include="source\cTexture.cpp" />
     <ClCompile Include="source\glm.cpp" />
