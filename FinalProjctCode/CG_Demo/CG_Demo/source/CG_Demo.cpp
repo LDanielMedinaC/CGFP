@@ -40,7 +40,6 @@ void init() {
 	mainCam->dir.y = -45;
 	mainCam->pos.y = 30;
 	mainCam->pos.z = 0;
-	mainCam->fov = 150;
 	mainCam->farDist = 250;
 
 	float pos[] = { 0,0,0 };
