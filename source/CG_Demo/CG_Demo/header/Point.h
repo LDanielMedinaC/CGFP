@@ -36,6 +36,11 @@ public:
 	void draw();
 	void update();
 
+	float diffuse[3];
+    float oDiffuse[3];
+    float specular[3];
+    float shininess;
+
 	float x, y, z;
 	float r, g, b;
 };

@@ -1,0 +1,90 @@
+newmtl Legorreta_1_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-1.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_2_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-2.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_3_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-3.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_4_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-4.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_5_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-5.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_6_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-6.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_7_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-7.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_8_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-8.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl Legorreta_9_palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-9.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06
+newmtl palette
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Legorreta-0.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.06

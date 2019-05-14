@@ -24,7 +24,6 @@ void Model::readOBJ() {
 			vec3 _v;
 			fscanf(file, "%f %f %f\n", &_v.x, &_v.y, &_v.z);
 			v.push_back(_v);
-			printf("%d %d %d", v[v.size() - 1].x, v[v.size() - 1].y, v[v.size() - 1].z);
 		}
 		else if (!strcmp(header, "vt")) {
 			vec2 _vt;
