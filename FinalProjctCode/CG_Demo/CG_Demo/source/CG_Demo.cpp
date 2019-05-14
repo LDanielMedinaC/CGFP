@@ -29,10 +29,12 @@
 #include "cCamera.h"
 #include "vecs.h"
 #include "Plane.h"
+#include "Controller.h"
 //TODO agregar las fuentes de luz
 
 Player * p;
 Plane* plane;
+Controller* controller;
 
 Camera* mainCam;
 int mouseCords[2];
@@ -42,6 +44,7 @@ GLfloat* Ia, * Is, * Id, * Ip;
 GLfloat* global_ambient;
 
 void init() {
+	controller = new Controller();
 	mainCam = new Camera();
 	mainCam->dir.y = -45;
 	mainCam->pos.y = 100;
@@ -88,10 +91,14 @@ void init() {
 
 	plane = new Plane("assets/MECHALEGORRETA.obj");
 
+	controller->px = &p->p->pos[0];
+	controller->pz = &p->p->pos[2];
+
 	glEnable(GL_DEPTH_TEST);			// Enable check for close and far objects.
 	glClearColor(0.0, 0.0, 0.0, 0.0);	// Clear the color state.
 	glMatrixMode(GL_MODELVIEW);			// Go to 3D mode.
 	glLoadIdentity();					// Reset 3D view matrix.
+
 }
 
 void display()							// Called for each frame (about 60 times per second).
@@ -102,12 +109,14 @@ void display()							// Called for each frame (about 60 times per second).
 	//gluLookAt(0, 10, 20, 0, 0, 0, 0, 1, 0);
 	p->draw();
 	plane -> draw();
+	controller->draw();
 	glutSwapBuffers();
 	
 }
 
 void idle()															// Called when drawing is finished.
 {
+	controller->update();
 	glutPostRedisplay();											// Display again.
 }
 
@@ -155,7 +164,7 @@ void specialKey(int key, int x, int y) {
 		_x -= 0.1f;
 		break;
 	}
-	p->move(-_x * 5, -_z * 5);
+	p->move(-_x * 10, -_z * 10);
 
 	glutPostRedisplay();
 
@@ -196,7 +205,7 @@ void mouse(int button, int state, int x, int y) {
 			mouseMotionType = 4;
 		}
 		else {
-			printf("%d %d\n", x, y);
+			//printf("%d %d\n", x, y);
 			mouseMotionType = 1;
 		}
 	}
